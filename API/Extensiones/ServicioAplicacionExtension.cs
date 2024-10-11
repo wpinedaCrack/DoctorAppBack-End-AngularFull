@@ -55,15 +55,25 @@ namespace API.Extensiones
             );
 
             // Configurar CORS
-            services.AddCors(options =>
-            {
-                options.AddPolicy("PermitirTodo", policy =>
-                {
-                    policy.AllowAnyOrigin()
-                          .AllowAnyMethod()
-                          .AllowAnyHeader();
-                });
-            });
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy("PermitirTodo", policy =>
+            //    {
+            //        policy.AllowAnyOrigin()
+            //              .AllowAnyMethod()
+            //              .AllowAnyHeader();
+            //    });
+            //});
+
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy("AllowAllOrigins", builder =>
+            //    {
+            //        builder.AllowAnyOrigin()
+            //               .AllowAnyMethod()
+            //               .AllowAnyHeader();
+            //    });
+            //});
 
             services.AddScoped<ITokenServicio, TokenServicio>(); // Se agrega Servicio
 
@@ -84,7 +94,7 @@ namespace API.Extensiones
                     return new BadRequestObjectResult(errorResponse);
                 };
             });
-
+           
             services.AddScoped<IEspecialidadRepositorio, EspecialidadRepositorio>();//No convence aun wpineda
             services.AddScoped<IUnidadTrabajo, UnidadTrabajo>();//patron IUnitofWork
 
