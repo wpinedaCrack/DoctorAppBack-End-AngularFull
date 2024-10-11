@@ -1,4 +1,6 @@
 ﻿using API.Errores;
+using BLL.Servicios.Interfaces;
+using BLL.Servicios;
 using Data;
 using Data.Interfaces;
 using Data.Interfaces.IRepositorio;
@@ -83,10 +85,14 @@ namespace API.Extensiones
                 };
             });
 
-            services.AddScoped<IEspecialidadRepositorio, EspecialidadRepositorio>();
+            services.AddScoped<IEspecialidadRepositorio, EspecialidadRepositorio>();//No convence aun wpineda
             services.AddScoped<IUnidadTrabajo, UnidadTrabajo>();//patron IUnitofWork
 
             services.AddAutoMapper(typeof(MappingProfile));
+
+            services.AddScoped<IEspecialidadServicio, EspecialidadServicio>();
+
+            services.AddScoped<IMedicoServicio, MedicoServicio>();
 
             return services;
         }

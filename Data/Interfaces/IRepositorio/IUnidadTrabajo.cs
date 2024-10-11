@@ -3,6 +3,7 @@
     public interface IUnidadTrabajo: IDisposable//patron IUnitofWork
     {
         IEspecialidadRepositorio Especialidad { get; }
+        IMedicoRepositorio Medico { get; }
         Task Guardar();
     }
 }
